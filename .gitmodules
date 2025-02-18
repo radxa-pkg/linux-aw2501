@@ -1,0 +1,7 @@
+[submodule "bsp"]
+	path = bsp
+	url = https://github.com/radxa/allwinner-bsp.git
+[submodule "src"]
+	path = src
+	url = https://github.com/radxa/kernel.git
+	branch = allwinner-aiot-linux-5.15

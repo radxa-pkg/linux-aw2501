@@ -1,4 +1,4 @@
-linux-aw2501 (0.1.0-1) UNRELEASED; urgency=medium
+linux-aw2501 (5.15.147-1) UNRELEASED; urgency=medium
 
   * Add initial Debian packaging support
 

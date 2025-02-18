@@ -1,3 +1,4 @@
+-include .github/local/Makefile.local
 PROJECT ?= linux-aw2501
 
 KERNEL_FORK ?= aw2501

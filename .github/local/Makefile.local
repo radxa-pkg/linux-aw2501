@@ -1,0 +1,24 @@
+CUSTOM_MAKE_DEFINITIONS := BSP_TOP=bsp/ LICHEE_KERN_DIR=./
+KERNEL_DEFCONFIG := defconfig allwinner.config radxa.config
+ALLWINNER_FIXUP := src/bsp src/arch/arm64/configs/allwinner.config \
+	bsp/ramfs/ramfs_aarch64.cpio.gz bsp/include/sunxi-autogen.h
+
+pre_build: $(ALLWINNER_FIXUP)
+
+src/bsp: $(SRC-KERNEL)
+	ln -sf ../bsp $@
+
+src/arch/arm64/configs/allwinner.config: $(SRC-KERNEL)
+	ln -sf ../../../../bsp/configs/linux-5.15/sun55iw3p1_min_defconfig $@
+
+bsp/ramfs/ramfs_aarch64.cpio.gz: $(SRC-KERNEL)
+	cd bsp/ramfs/ramfs_aarch64 && find . | fakeroot cpio -o -Hnewc | gzip > ../ramfs_aarch64.cpio.gz
+
+bsp/include/sunxi-autogen.h: $(SRC-KERNEL)
+	echo "#define AW_BSP_VERSION \"$(shell git log -n 1 --abbrev=10 --pretty=format:"%h"), $(shell date "+%Y-%m-%d %H:%M:%S"), RadxaOS SDK\"" > $@
+
+clean: clean-symlinks
+
+.PHONY: clean-symlinks
+clean-symlinks:
+	rm -f $(ALLWINNER_FIXUP)
