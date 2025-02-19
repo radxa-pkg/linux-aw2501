@@ -1,6 +1,7 @@
 CUSTOM_MAKE_DEFINITIONS := BSP_TOP=bsp/ LICHEE_KERN_DIR=./
-KERNEL_DEFCONFIG := defconfig allwinner.config radxa.config
+KERNEL_DEFCONFIG := defconfig allwinner.config bsp.config radxa.config
 ALLWINNER_FIXUP := src/bsp src/arch/arm64/configs/allwinner.config \
+	src/arch/arm64/configs/bsp.config \
 	bsp/ramfs/ramfs_aarch64.cpio.gz bsp/include/sunxi-autogen.h
 
 pre_build: $(ALLWINNER_FIXUP)
@@ -10,6 +11,9 @@ src/bsp: $(SRC-KERNEL)
 
 src/arch/arm64/configs/allwinner.config: $(SRC-KERNEL)
 	ln -sf ../../../../bsp/configs/linux-5.15/sun55iw3p1_min_defconfig $@
+
+src/arch/arm64/configs/bsp.config: $(SRC-KERNEL)
+	ln -sf ../../../../device/configs/cubie_a5e/debian/linux-5.15/bsp_defconfig $@
 
 bsp/ramfs/ramfs_aarch64.cpio.gz: $(SRC-KERNEL)
 	cd bsp/ramfs/ramfs_aarch64 && find . | fakeroot cpio -o -Hnewc | gzip > ../ramfs_aarch64.cpio.gz

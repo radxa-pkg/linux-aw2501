@@ -5,3 +5,7 @@
 	path = src
 	url = https://github.com/radxa/kernel.git
 	branch = allwinner-aiot-linux-5.15
+[submodule "device"]
+	path = device
+	url = https://github.com/radxa/allwinner-device.git
+	branch = device-a527
