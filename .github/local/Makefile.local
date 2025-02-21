@@ -1,5 +1,5 @@
-CUSTOM_MAKE_DEFINITIONS := BSP_TOP=bsp/ LICHEE_KERN_DIR=./
-KERNEL_DEFCONFIG := defconfig allwinner.config bsp.config radxa.config
+CUSTOM_MAKE_DEFINITIONS := BSP_TOP=bsp/ LICHEE_KERN_DIR=./ KBUILD_DEFCONFIG=allwinner.config
+KERNEL_DEFCONFIG := defconfig bsp.config radxa.config
 ALLWINNER_FIXUP := src/bsp src/arch/arm64/configs/allwinner.config \
 	src/arch/arm64/configs/bsp.config \
 	bsp/ramfs/ramfs_aarch64.cpio.gz bsp/include/sunxi-autogen.h
