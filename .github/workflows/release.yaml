@@ -10,24 +10,13 @@ jobs:
         fetch-depth: 0
         fetch-tags: true
         submodules: "recursive"
-    - name: "pre-commit check"
-      run: |
-        pip install pre-commit
-        if ! pre-commit run --all-files --show-diff-on-failure
-        then
-            echo ''
-            echo '=== Code style issue detected! ==='
-            echo 'Suggest changes are listed above.'
-            echo 'Please install pre-commit and run `pre-commit run --all-files` to fix it.'
-            echo 'Strongly recommended to run `pre-commit install` to catch issues before pushing.'
-            echo 'You can learn more about pre-commit from https://pre-commit.com/'
-            exit 1
-        fi
-      shell: "bash"
+    - name: "Enable Multiarch"
+      uses: "ryankurte/action-apt@master"
+      with:
+        arch: "arm64"
     - name: "Test"
       run: |
         sudo apt-get update
-        sudo apt-get build-dep --no-install-recommends -y .
         sudo apt-get install --no-install-recommends -y git-buildpackage
         export DEBEMAIL="dev@radxa.com"
         export DEBFULLNAME='"Radxa Computer Co., Ltd"'
@@ -37,12 +26,13 @@ jobs:
         git branch -D main || true
         git switch -c main || true
         make dch
-        make test all deb
+        make devcontainer_setup
+        make test deb
         git reset --hard HEAD~1
       shell: "bash"
     - name: "Build"
       run: |
-        make all deb
+        make deb
       shell: "bash"
     - id: "artifacts_path"
       name: "Workaround actions/upload-artifact#176"

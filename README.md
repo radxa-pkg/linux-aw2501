@@ -1,6 +1,6 @@
 # linux-aw2501
 
-[![Release](https://github.com/radxa-pkg/linux-aw2501/actions/workflows/release.yml/badge.svg)](https://github.com/radxa-pkg/linux-aw2501/actions/workflows/release.yml)
+[![Release](https://github.com/radxa-pkg/linux-aw2501/actions/workflows/release.yaml/badge.svg)](https://github.com/radxa-pkg/linux-aw2501/actions/workflows/release.yaml)
 
 Radxa linux image for aw2501 release
 
