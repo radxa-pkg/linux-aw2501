@@ -8,6 +8,7 @@ DPKG_FLAGS ?= -d
 KERNEL_DEFCONFIG ?= defconfig radxa.config
 CUSTOM_MAKE_DEFINITIONS ?=
 CUSTOM_DEBUILD_ENV ?= DEB_BUILD_OPTIONS='parallel=1'
+SUPPORT_CLEAN ?= true
 
 KMAKE ?= $(MAKE) -C "$(SRC-KERNEL)" -j$(shell nproc) \
 			$(CUSTOM_MAKE_DEFINITIONS) \
@@ -75,11 +76,11 @@ build-bindeb: $(SRC-KERNEL) build-all
 #
 .PHONY: distclean
 distclean: clean
-	$(KMAKE) distclean
+	if [ "$(SUPPORT_CLEAN)" == "true" ]; then $(KMAKE) distclean; fi
 
 .PHONY: clean
 clean: clean-deb
-	$(KMAKE) clean
+	if [ "$(SUPPORT_CLEAN)" == "true" ]; then $(KMAKE) clean; fi
 
 .PHONY: clean-deb
 clean-deb:
