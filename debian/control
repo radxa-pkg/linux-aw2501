@@ -27,7 +27,7 @@ Provides: linux-image
 Depends: radxa-overlays-dkms,
          linux-image-${binary:Version}-aw2501,
          ${misc:Depends},
-Description: Radxa Linux meta-package for Radxa Cubit A5E
+Description: Radxa Linux meta-package for Radxa Cubie A5E
  This is the meta-package for Linux kernel.
 
 Package: linux-headers-radxa-cubie-a5e
@@ -37,7 +37,7 @@ Priority: optional
 Provides: linux-headers
 Depends: linux-headers-${binary:Version}-aw2501,
          ${misc:Depends},
-Description: Radxa Linux headers meta-package for Radxa Cubit A5E
+Description: Radxa Linux headers meta-package for Radxa Cubie A5E
  This is the meta-package for Linux headers.
 
 Package: linux-libc-dev-radxa-cubie-a5e
@@ -47,5 +47,5 @@ Priority: optional
 Provides: linux-libc-dev
 Depends: linux-libc-dev-${binary:Version}-aw2501,
          ${misc:Depends},
-Description: Radxa Linux libc-dev meta-package for Radxa Cubit A5E
+Description: Radxa Linux libc-dev meta-package for Radxa Cubie A5E
  This is the meta-package for Linux libc-dev.
