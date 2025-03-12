@@ -18,6 +18,7 @@ Build-Depends: debhelper (>=12~),
             libssl-dev:arm64,
             cpio,
             kmod:arm64,
+            libyaml-dev:arm64,
 
 Package: linux-image-radxa-cubie-a5e
 Architecture: all
