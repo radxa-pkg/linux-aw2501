@@ -1,4 +1,5 @@
-CUSTOM_MAKE_DEFINITIONS := BSP_TOP=bsp/ LICHEE_KERN_DIR=./ KBUILD_DEFCONFIG=bsp.config EXTRA_CFLAGS=-Wno-enum-int-mismatch
+CUSTOM_ENV_DEFINITIONS := CFLAGS=-Wno-enum-int-mismatch
+CUSTOM_MAKE_DEFINITIONS := BSP_TOP=bsp/ LICHEE_KERN_DIR=./ KBUILD_DEFCONFIG=bsp.config
 KERNEL_DEFCONFIG := defconfig radxa.config radxa_custom.config
 SUPPORT_CLEAN := false
 ALLWINNER_FIXUP := src/bsp src/arch/arm64/configs/allwinner.config \
