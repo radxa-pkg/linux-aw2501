@@ -4,7 +4,7 @@ KERNEL_DEFCONFIG := defconfig radxa.config radxa_custom.config
 SUPPORT_CLEAN := false
 ALLWINNER_FIXUP := src/bsp src/arch/arm64/configs/allwinner.config \
 	src/arch/arm64/configs/bsp.config \
-	src/arch/arm64/boot/dts/allwinner/sun55iw3p1-a527-radxa-cubie-a5e.dts \
+	src/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts \
 	bsp/ramfs/ramfs_aarch64.cpio.gz bsp/include/sunxi-autogen.h
 
 ALLWINNER_COPY := src/arch/arm64/boot/dts/allwinner src/include/dt-bindings
@@ -26,7 +26,7 @@ bsp/ramfs/ramfs_aarch64.cpio.gz: $(SRC-KERNEL)
 bsp/include/sunxi-autogen.h: $(SRC-KERNEL)
 	echo "#define AW_BSP_VERSION \"$(shell git log -n 1 --abbrev=10 --pretty=format:"%h"), $(shell date "+%Y-%m-%d %H:%M:%S"), RadxaOS SDK\"" > $@
 
-src/arch/arm64/boot/dts/allwinner/sun55iw3p1-a527-radxa-cubie-a5e.dts: $(SRC-KERNEL)
+src/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts: $(SRC-KERNEL)
 	ln -sf ../../../../../../device/configs/cubie_a5e/linux-5.15/board.dts $@
 
 .PHONY: src/arch/arm64/boot/dts/allwinner
