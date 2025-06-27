@@ -5,29 +5,17 @@ Subject: [PATCH] fix: use the correct header path
 
 Signed-off-by: ZHANG Yuntian <yt@radxa.com>
 ---
- bsp/drivers/g2d/g2d_legacy/g2d_trace.h                   | 2 +-
- bsp/drivers/gmac/sunxi-gmac-trace.h                      | 2 +-
- bsp/drivers/sound/adapter/snd_sunxi_adapter.c            | 2 +-
- bsp/drivers/sound/adapter/snd_sunxi_pcm_adapter.c        | 4 ++--
- bsp/drivers/sound/platform/platforms/snd_sun55iw3_dmic.c | 4 ++--
- bsp/drivers/sound/platform/platforms/snd_sun55iw3_i2s.c  | 4 ++--
- bsp/drivers/spi-ng/bit/spi-sunxi-bit.c                   | 2 +-
- bsp/drivers/spi-ng/camera/spi-sunxi-camera.c             | 2 +-
- bsp/drivers/spi-ng/dbi/spi-sunxi-dbi.c                   | 2 +-
- bsp/modules/nand/common1/nfd/nand_type.h                 | 2 +-
- bsp/drivers/usb/host/sunxi-hci.h                         | 2 +-
- 11 files changed, 14 insertions(+), 14 deletions(-)
 
-diff --git a/bsp/drivers/g2d/g2d_legacy/g2d_trace.h b/bsp/drivers/g2d/g2d_legacy/g2d_trace.h
+diff --git a/bsp/drivers/g2d/g2d_trace.h b/bsp/drivers/g2d/g2d_trace.h
 index af2b9fa..5f1db84 100644
---- a/bsp/drivers/g2d/g2d_legacy/g2d_trace.h
-+++ b/bsp/drivers/g2d/g2d_legacy/g2d_trace.h
+--- a/bsp/drivers/g2d/g2d_trace.h
++++ b/bsp/drivers/g2d/g2d_trace.h
 @@ -11,7 +11,7 @@
   */
  
  #undef TRACE_SYSTEM
--#define TRACE_INCLUDE_PATH ./g2d_legacy/
-+#define TRACE_INCLUDE_PATH ../../bsp/drivers/g2d/g2d_legacy
+-#define TRACE_INCLUDE_PATH .
++#define TRACE_INCLUDE_PATH ../../bsp/drivers/g2d
  #define TRACE_SYSTEM g2d_trace
  
  #if !defined(_TRACE_G2D_H) || defined(TRACE_HEADER_MULTI_READ)
@@ -55,8 +43,8 @@ index 63057ea..5464739 100644
 -#include "snd_sunxi_log.h"
 +#include "../platform/snd_sunxi_log.h"
  
- #if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 10, 0)
- struct snd_soc_dai *sunxi_adpt_rtd_cpu_dai(struct snd_soc_pcm_runtime *rtd)
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 6, 0)
+ void sunxi_adpt_set_dai_ops(struct snd_soc_dai_driver *dai_drv, struct snd_soc_dai_ops *ops,
 diff --git a/bsp/drivers/sound/adapter/snd_sunxi_pcm_adapter.c b/bsp/drivers/sound/adapter/snd_sunxi_pcm_adapter.c
 index db119af..3096122 100644
 --- a/bsp/drivers/sound/adapter/snd_sunxi_pcm_adapter.c
@@ -102,45 +90,6 @@ index 2737d6d..f1cf03c 100644
  
  struct sunxi_i2s_clk {
  	/* parent clk */
-diff --git a/bsp/drivers/spi-ng/bit/spi-sunxi-bit.c b/bsp/drivers/spi-ng/bit/spi-sunxi-bit.c
-index b8f4ea7..fd4a0ea 100644
---- a/bsp/drivers/spi-ng/bit/spi-sunxi-bit.c
-+++ b/bsp/drivers/spi-ng/bit/spi-sunxi-bit.c
-@@ -7,7 +7,7 @@
- 
- #define SUNXI_MODNAME "spi"
- #include <sunxi-log.h>
--#include "spi-sunxi-debug.h"
-+#include "../spi-sunxi-debug.h"
- #include "spi-sunxi-bit.h"
- 
- /* SPI Controller Hardware Register Operation Start */
-diff --git a/bsp/drivers/spi-ng/camera/spi-sunxi-camera.c b/bsp/drivers/spi-ng/camera/spi-sunxi-camera.c
-index 72cc054..725adff 100644
---- a/bsp/drivers/spi-ng/camera/spi-sunxi-camera.c
-+++ b/bsp/drivers/spi-ng/camera/spi-sunxi-camera.c
-@@ -7,7 +7,7 @@
- 
- #define SUNXI_MODNAME "spi"
- #include <sunxi-log.h>
--#include "spi-sunxi-debug.h"
-+#include "../spi-sunxi-debug.h"
- #include "spi-sunxi-camera.h"
- 
- /* SPI Controller Hardware Register Operation Start */
-diff --git a/bsp/drivers/spi-ng/dbi/spi-sunxi-dbi.c b/bsp/drivers/spi-ng/dbi/spi-sunxi-dbi.c
-index e61a73f..699c8a7 100644
---- a/bsp/drivers/spi-ng/dbi/spi-sunxi-dbi.c
-+++ b/bsp/drivers/spi-ng/dbi/spi-sunxi-dbi.c
-@@ -7,7 +7,7 @@
- 
- #define SUNXI_MODNAME "spi"
- #include <sunxi-log.h>
--#include "spi-sunxi-debug.h"
-+#include "../spi-sunxi-debug.h"
- #include "spi-sunxi-dbi.h"
- 
- static int sunxi_dbi_debug_mask;
 diff --git a/bsp/modules/nand/common1/nfd/nand_type.h b/bsp/modules/nand/common1/nfd/nand_type.h
 index ce49aeb..0703362 100644
 --- a/bsp/modules/nand/common1/nfd/nand_type.h
@@ -166,6 +115,19 @@ index b15c685..f842dd4 100644
  
  extern int usb_disabled(void);
  extern struct atomic_notifier_head usb_pm_notifier_list;
+diff --git a/bsp/drivers/ve/cedar-ve/platforms/ve_plat_common.c b/bsp/drivers/ve/cedar-ve/platforms/ve_plat_common.c
+index 3453f9d3..a0c267b5 100644
+--- a/bsp/drivers/ve/cedar-ve/platforms/ve_plat_common.c
++++ b/bsp/drivers/ve/cedar-ve/platforms/ve_plat_common.c
+@@ -19,7 +19,7 @@
+ #include <asm/cacheflush.h>
+ #include <sunxi-sid.h>
+ 
+-#include "cedar_ve.h"
++#include "../cedar_ve.h"
+ 
+ /* debugfs param */
+ #define VE_DEBUGFS_MAX_CHANNEL	16
 -- 
 2.47.1
 

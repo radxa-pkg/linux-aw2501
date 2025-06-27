@@ -1,7 +1,7 @@
 [submodule "bsp"]
 	path = bsp
 	url = https://github.com/radxa/allwinner-bsp.git
-	branch = product-t527-linux
+	branch = cubie-aiot-v1.4.6
 [submodule "src"]
 	path = src
 	url = https://github.com/radxa/kernel.git
@@ -9,4 +9,4 @@
 [submodule "device"]
 	path = device
 	url = https://github.com/radxa/allwinner-device.git
-	branch = device-a527
+	branch = device-a527-v1.4.6
