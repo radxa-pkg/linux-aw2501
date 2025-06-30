@@ -16,7 +16,7 @@ index a96d9d2d8dd8..ba55bb91cda6 100644
  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h6-pine-h64.dtb
  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h6-pine-h64-model-b.dtb
  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h6-tanix-tx6.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun55i-a527-radxa-a5e.dtb
++dtb-$(CONFIG_ARCH_SUNXI) += sun55i-a527-cubie-a5e.dtb
 -- 
 2.47.1
 
