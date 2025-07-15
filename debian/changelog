@@ -1,3 +1,10 @@
+linux-aw2501 (5.15.147-3) unstable; urgency=medium
+
+  [ github-actions[bot] ]
+  * chore: update submodules
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 15 Jul 2025 10:35:07 +0000
+
 linux-aw2501 (5.15.147-2) unstable; urgency=medium
 
   [ ZHANG Yuntian ]
