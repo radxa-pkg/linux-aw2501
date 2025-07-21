@@ -18,7 +18,7 @@ src/arch/arm64/configs/allwinner.config: $(SRC-KERNEL)
 	ln -sf ../../../../bsp/configs/linux-5.15/sun55iw3p1_min_defconfig $@
 
 src/arch/arm64/configs/bsp.config: $(SRC-KERNEL)
-	ln -sf ../../../../device/configs/cubie_a5e/debian/linux-5.15/bsp_defconfig $@
+	ln -sf ../../../../device-a527/configs/cubie_a5e/debian/linux-5.15/bsp_defconfig $@
 
 bsp/ramfs/ramfs_aarch64.cpio.gz: $(SRC-KERNEL)
 	cd bsp/ramfs/ramfs_aarch64 && find . | fakeroot cpio -o -Hnewc | gzip > ../ramfs_aarch64.cpio.gz
@@ -27,7 +27,7 @@ bsp/include/sunxi-autogen.h: $(SRC-KERNEL)
 	echo "#define AW_BSP_VERSION \"$(shell git log -n 1 --abbrev=10 --pretty=format:"%h"), $(shell date "+%Y-%m-%d %H:%M:%S"), RadxaOS SDK\"" > $@
 
 src/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts: $(SRC-KERNEL)
-	ln -sf ../../../../../../device/configs/cubie_a5e/linux-5.15/board.dts $@
+	ln -sf ../../../../../../device-a527/configs/cubie_a5e/linux-5.15/board.dts $@
 
 .PHONY: src/arch/arm64/boot/dts/allwinner
 src/arch/arm64/boot/dts/allwinner: $(SRC-KERNEL)
