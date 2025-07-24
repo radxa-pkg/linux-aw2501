@@ -128,6 +128,49 @@ index 3453f9d3..a0c267b5 100644
  
  /* debugfs param */
  #define VE_DEBUGFS_MAX_CHANNEL	16
+diff --git a/bsp/drivers/ve/cedar-ve/platforms/ve_plat_sun60iw2.c b/bsp/drivers/ve/cedar-ve/platforms/ve_plat_sun60iw2.c
+index 3453f9d1..a0c267b1 100644
+--- a/bsp/drivers/ve/cedar-ve/platforms/ve_plat_sun60iw2.c
++++ b/bsp/drivers/ve/cedar-ve/platforms/ve_plat_sun60iw2.c
+@@ -19,7 +19,7 @@
+ #include <linux/debugfs.h>
+ #include <linux/slab.h>
+ #include <sunxi-sid.h>
+-#include "cedar_ve.h"
++#include "../cedar_ve.h"
+ 
+ #define VE_REG_DEC_TOP_BASE	0X0000
+ #define VE_REG_ENC_TOP_BASE	0X0800
+diff --git a/bsp/drivers/sound/platform/platforms/snd_sun60iw2_i2s.c b/bsp/drivers/sound/platform/platforms/snd_sun60iw2_i2s.c
+index 3453f9d2..a0c267b2 100644
+--- a/bsp/drivers/sound/platform/platforms/snd_sun60iw2_i2s.c
++++ b/bsp/drivers/sound/platform/platforms/snd_sun60iw2_i2s.c
+@@ -19,8 +19,8 @@
+ #include <linux/device.h>
+ #include <linux/regmap.h>
+ 
+-#include "snd_sunxi_log.h"
+-#include "snd_sunxi_i2s.h"
++#include "../snd_sunxi_log.h"
++#include "../snd_sunxi_i2s.h"
+ 
+ struct sunxi_i2s_clk {
+ 	/* parent clk */
+diff --git a/bsp/drivers/sound/platform/platforms/snd_sun60iw2_owa.c b/bsp/drivers/sound/platform/platforms/snd_sun60iw2_owa.c
+index 3453f9d4..a0c267b4 100644
+--- a/bsp/drivers/sound/platform/platforms/snd_sun60iw2_owa.c
++++ b/bsp/drivers/sound/platform/platforms/snd_sun60iw2_owa.c
+@@ -19,8 +19,8 @@
+ #include <linux/device.h>
+ #include <linux/regmap.h>
+ 
+-#include "snd_sunxi_log.h"
+-#include "snd_sunxi_owa.h"
++#include "../snd_sunxi_log.h"
++#include "../snd_sunxi_owa.h"
+ 
+ struct sunxi_owa_clk {
+ 	/* parent clk */
 -- 
 2.47.1
 
