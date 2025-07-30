@@ -1,3 +1,14 @@
+linux-aw2501 (5.15.147-5) unstable; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * fix: remove A733 support
+  * fix: delete duplicate lintian-overrides
+
+  [ github-actions[bot] ]
+  * chore: update submodules
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 30 Jul 2025 09:02:13 +0000
+
 linux-aw2501 (5.15.147-4) unstable; urgency=medium
 
   [ ZHANG Yuntian ]
