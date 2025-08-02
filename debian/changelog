@@ -1,3 +1,10 @@
+linux-aw2501 (5.15.147-7) unstable; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * fix: restore container image release
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Sat, 02 Aug 2025 09:35:38 +0000
+
 linux-aw2501 (5.15.147-6) unstable; urgency=medium
 
   [ github-actions[bot] ]
