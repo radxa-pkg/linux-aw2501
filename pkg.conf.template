@@ -1,0 +1,8 @@
+{
+  "*": {
+    "Releases": [
+      "a527-bullseye",
+      "a527-bullseye-test"
+    ]
+  }
+}
