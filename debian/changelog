@@ -3,7 +3,7 @@ linux-aw2501 (5.15.147-19) unstable; urgency=medium
   [ github-actions[bot] ]
   * chore: update submodules
 
- -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 30 Apr 2026 03:45:49 +0000
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 30 Apr 2026 09:42:25 +0000
 
 linux-aw2501 (5.15.147-18) unstable; urgency=medium
 
